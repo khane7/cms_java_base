@@ -1,0 +1,2 @@
+cd O:\Development\Workspaces\JetBrainsWorkspaces\site_humanwares_cms\src\main\webapp\resources\db-script
+mysqldump -uroot -p db_hw_cms > db_hw_cms_

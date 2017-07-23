@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+ <!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+ 
+ 
+ 
+ <mapper namespace="users">
+
+
+
+  	<select id="select_users_count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+ 		SELECT
+ 			COUNT(A.idx)
+ 		FROM 
+ 			tb_users AS A
+ 		<where>
+ 			<if test="idx != null">
+ 				A.idx = #{ idx }
+ 			</if>
+ 			<if test="user_id != null and passwd == null">
+ 				A.user_id = #{ user_id }
+ 			</if>
+ 			<if test="user_id != null and passwd != null">
+ 				A.user_id = #{ user_id }
+ 				<if test="passwd != null">
+ 					AND A.passwd = MD5( #{ passwd })
+ 				</if>
+ 			</if>
+ 			<if test="searchValue != null and searchValue != '' ">
+ 				AND A.user_id LIKE CONCAT( '%', #{ searchValue }, '%' ) OR A.user_name LIKE CONCAT( '%', #{ searchValue }, '%' ) 
+ 			</if>
+ 		</where>
+ 		ORDER BY A.REGDATE DESC
+ 	</select>
+ 
+ 
+ 	<select id="select_users" parameterType="java.util.HashMap" resultType="BeanUsers">
+ 		SELECT
+ 			*
+ 		FROM
+			tb_users AS A
+ 		<where>
+ 			<if test="idx != null">
+ 				A.idx = #{ idx }
+ 			</if>
+ 			<if test="user_id != null and passwd == null">
+ 				A.user_id = #{ user_id }
+ 			</if>
+ 			<if test="user_id != null and passwd != null">
+ 				A.user_id = #{ user_id }
+ 				<if test="passwd != null">
+ 					AND A.passwd = MD5( #{ passwd })
+ 				</if>
+ 			</if>
+ 			<if test="searchValue != null and searchValue != '' ">
+ 				AND A.user_id LIKE CONCAT( '%', #{ searchValue }, '%' ) OR A.user_name LIKE CONCAT( '%', #{ searchValue }, '%' ) 
+ 			</if>
+ 		</where>
+ 		
+		<if test="ordering != null and ordering != '' ">
+ 			ORDER BY
+				A.${ ordering } ${ sort }
+ 		</if>
+ 		<if test="ordering == null or ordering == '' ">
+ 			ORDER BY
+				A.regdate DESC
+ 		</if> 		
+ 		
+ 		<if test="start != null">
+ 			LIMIT #{start}, #{limit}
+ 		</if>
+ 	</select>
+ 
+ 
+  	<insert id="insert_user" parameterType="BeanUsers">
+ 		INSERT INTO
+ 			tb_users
+ 		(
+ 			user_id,
+ 			passwd,
+ 			user_name,
+ 			level,
+ 			regdate,
+ 			is_admin,
+ 			is_delete
+ 		)
+ 		VALUES
+ 		(
+ 			#{ user_id },
+ 			MD5(#{ passwd }),
+ 			#{ user_name },
+ 			#{ level },
+ 			NOW(),
+ 			#{ is_admin },
+ 			#{ is_delete }
+ 		)
+ 	</insert>
+ 
+ 
+ 	<update id="update_user" parameterType="BeanUsers">
+ 		UPDATE
+			tb_users
+ 		<set>
+ 			<if test="user_name != null">
+ 				user_name = #{ user_name },
+ 			</if>
+ 			<if test="passwd != null">
+ 				PASSWD = MD5(#{passwd}),
+ 			</if>
+ 			<if test="level != null">
+ 				level = #{ level },
+ 			</if>
+ 		</set>
+ 		WHERE
+ 			idx = #{ idx }
+ 	</update>
+ 	
+ 	
+ 	<update id="update_passwd" parameterType="java.util.HashMap">
+ 		UPDATE
+ 			tb_users
+ 		SET
+ 			passwd = MD5(#{passwd})
+ 		WHERE
+ 			user_id = #{ user_id }
+ 	</update>
+ 	
+ 	
+	<update id="update_drop" parameterType="java.util.HashMap">
+ 		UPDATE
+ 			tb_users
+ 		SET
+ 			is_delete = 'Y'
+ 		WHERE
+ 			user_id = #{ user_id }
+ 	</update>
+ 
+ </mapper>

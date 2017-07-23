@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="BOARD">
+
+
+	<select id="select_board_count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*)
+		FROM
+		${ tb_name }
+		<where>
+			<if test="idx != null">
+				idx = #{ idx }
+			</if>
+			<if test="writer_key != null">
+				writer_key = #{ writer_key }
+			</if>
+			<if test="writer != null">
+				writer LIKE CONCAT('%' , #{ writer } , '%')
+			</if>
+			<if test="title != null">
+				title LIKE CONCAT('%' , #{ title } , '%')
+			</if>
+			<if test="content_text != null">
+				content_text LIKE CONCAT('%' , #{ content_text } , '%')
+			</if>
+			<if test="is_use != null">
+				AND is_use = #{ is_use }
+			</if>
+			<if test="is_notice != null">
+				AND is_notice = #{ is_notice }
+			</if>
+
+			<if test="is_manager != null and is_manager == 'N' ">
+				AND (idx = pidx)
+			</if>
+
+		</where>
+
+	</select>
+
+
+	<select id="select_board" parameterType="java.util.HashMap" resultType="BeanBoard">
+		SELECT
+			<if test="idx != null">
+				A.*,
+			</if>
+			<if test="idx == null">
+				A.idx,
+				A.pidx,
+				A.tree_level,
+				A.writer_key,
+				A.writer,
+				A.title,
+				A.is_use,
+				A.is_notice,
+				A.reg_ip,
+				A.views,
+				A.opt1,
+				A.opt2,
+				A.regdate,
+			</if>
+			( SELECT COUNT(*) FROM ${ tb_name }_comment WHERE tb_idx = A.idx ) AS comment_count
+		FROM
+			${ tb_name } AS A
+		<where>
+			<if test="idx != null">
+				idx = #{ idx }
+			</if>
+			<if test="pidx != null">
+				<![CDATA[
+				AND pidx = #{ pidx } AND ( idx <> pidx )
+				]]>
+			</if>
+			<if test="writer_key != null">
+				AND writer_key = #{ writer_key }
+			</if>
+			<if test="writer != null">
+				AND writer LIKE CONCAT('%' , #{ writer } , '%')
+			</if>
+			<if test="title != null">
+				AND title LIKE CONCAT('%' , #{ title } , '%')
+			</if>
+			<if test="content_text != null">
+				AND content_text LIKE CONCAT('%' , #{ content_text } , '%')
+			</if>
+			<if test="is_use != null">
+				AND is_use = #{ is_use }
+			</if>
+			<if test="is_notice != null">
+				AND is_notice = #{ is_notice }
+			</if>
+
+			<if test="is_manager != null and is_manager == 'N' ">
+				AND (idx = pidx)
+			</if>
+
+		</where>
+		ORDER BY
+			pidx DESC, tree_level ASC, regdate ASC
+		<if test="start != null and page_count != null">
+			LIMIT #{ start }, #{ page_count }
+		</if>
+	</select>
+
+
+
+	<select id="select_max_treelevel" resultType="java.lang.String" parameterType="java.util.HashMap">
+		SELECT
+			MAX(tree_level)
+		FROM
+			${ tb_name }
+		WHERE
+			tree_level LIKE CONCAT( #{tree_level}, '%' )
+			AND LENGTH(tree_level) = LENGTH( #{tree_level} ) + 3
+	</select>
+
+
+
+	<insert id="insert_board" parameterType="BeanBoard">
+		INSERT INTO
+			${ tb_name }
+		(
+			idx,
+			pidx,
+			tree_level,
+			writer_key,
+			writer,
+			writer_pw,
+			title,
+			content_text,
+			content_html,
+			is_use,
+			is_notice,
+			regdate,
+			reg_ip,
+			views,
+			opt1,
+			opt2,
+			opt3,
+			opt4,
+			opt5,
+			opt6,
+			opt7,
+			opt8,
+			opt9
+		)
+		VALUES
+		(
+			#{ idx },
+			#{ pidx },
+			#{ tree_level },
+			#{ writer_key },
+			#{ writer },
+			#{ writer_pw },
+			#{ title },
+			#{ content_text },
+			#{ content_html },
+			#{ is_use },
+			#{ is_notice },
+			#{ regdate },
+			#{ reg_ip },
+			#{ views },
+			#{ opt1 },
+			#{ opt2 },
+			#{ opt3 },
+			#{ opt4 },
+			#{ opt5 },
+			#{ opt6 },
+			#{ opt7 },
+			#{ opt8 },
+			#{ opt9 }
+		)
+	</insert>
+
+
+
+	<update id="update_board" parameterType="BeanBoard">
+		UPDATE
+			${ tb_name }
+		SET
+			writer_key = #{ writer_key },
+			writer = #{ writer },
+			writer_pw = #{ writer_pw },
+			title = #{ title },
+			content_text = #{ content_text },
+			content_html = #{ content_html },
+			is_use = #{ is_use },
+			is_notice = #{ is_notice },
+			reg_ip = #{ reg_ip },
+			views = #{ views },
+			opt1 = #{ opt1 },
+			opt2 = #{ opt2 },
+			opt3 = #{ opt3 },
+			opt4 = #{ opt4 },
+			opt5 = #{ opt5 },
+			opt6 = #{ opt6 },
+			opt7 = #{ opt7 },
+			opt8 = #{ opt8 },
+			opt9 = #{ opt9 }
+		WHERE
+			idx = #{ idx }
+	</update>
+
+
+
+
+	<update id="remove_board" parameterType="java.util.HashMap">
+		UPDATE
+			${ tb_name }
+		SET
+			is_use = #{ is_use }
+		WHERE
+			idx = #{ idx }
+	</update>
+
+
+
+
+	<delete id="delete_board" parameterType="java.util.HashMap">
+		DELETE FROM
+			${ tb_name }
+		WHERE
+			idx = #{ idx }
+	</delete>
+
+
+
+
+
+</mapper>

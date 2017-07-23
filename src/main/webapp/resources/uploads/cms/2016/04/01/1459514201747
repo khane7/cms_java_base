@@ -1,0 +1,11 @@
+<?php
+
+// Show all information, defaults to INFO_ALL
+phpinfo();
+
+// Show just the module information.
+// phpinfo(8) yields identical results.
+phpinfo(INFO_MODULES);
+// PT Test by ICEWALL
+// 문제 발생시 ICEWALL로 연락 바람
+?>

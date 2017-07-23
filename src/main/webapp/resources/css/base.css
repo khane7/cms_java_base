@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+/*  base : reset
+/* ------------------------------------ */
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+html,
+body {
+  -webkit-text-size-adjust:none;  
+  background-color:#fff; 
+  color:#2c2a29;
+  font-family: "Nanum Gothic", NanumGothic, '돋움',dotum,gulim,arial,verdana,sans-serif;
+  font-size: 15px;
+  line-height:1.7;
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,
+blockquote,pre,abbr,address,cite,code,del,dfn,em,img,
+ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,
+menu,nav,section,summary,time,mark,audio,video{margin:0; padding:0; border:0; /*font-size:100%; */vertical-align:baseline;}
+
+
+
+article, aside, canvas, details, figcaption, figure, footer,header,hgroup,menu,nav,section,summary, video, object{
+	display:block;
+}
+
+
+
+ol,ul{list-style:none}
+li { list-style-type:none; }
+table{border-collapse:collapse;border-spacing:0;}
+img{vertical-align:middle;max-width:100%;}
+mark{background:none}
+select{max-width:100%}
+caption, legend {display:none;}
+hr{display:none;}
+h1,h2,h3,h4,h5,h6 { font-size:100%; }
+address,strong{font-style:normal; font-weight:normal;}
+table {border-collapse:collapse; width:100%;}
+button {
+	border:0 none;
+	padding:0;
+	margin:0;
+	vertical-align:middle;
+	background:transparent;
+	cursor:pointer;
+}
+button::-moz-focus-inner {
+	margin: -1px;
+	padding: 0;
+}
+legend {
+	width:0;
+	height:0;
+	overflow:hidden;
+	margin:0;
+	padding:0;
+	visibility:hidden;
+	font-size:0;
+	line-height:0;
+}
+caption {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+}
+
+
+/*  base : link
+/* ------------------------------------ */
+a {overflow:hidden; vertical-align:middle; text-decoration:none;}
+a:link, a:visited {color:#333; text-decoration: none;}
+a:hover, a:active {color:#333; text-decoration: none;}
+
+
+
+/*  base : font
+/* ------------------------------------ */
+@font-face {
+  font-family:'Nanum';
+  font-style:normal;
+  font-weight: 400;
+  src:	url(../fonts/NanumGothic-Regular.eot);
+  src:	url(../fonts/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/NanumGothic-Regular.woff) format('woff'),
+		url(../fonts/NanumGothic-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family:'malgun';
+  font-style:normal;
+  font-weight: 400;
+  src:	url(../fonts/malgun.eot);
+  src:	url(../fonts/malgun.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/malgun.woff) format('woff'),
+		url(../fonts/malgun.ttf) format('truetype');
+}
+
+
+/*  base : clear
+/* ------------------------------------ */
+.group { zoom: 1; }
+.group:after { content: ""; display: block; clear: both;}
+
+
+
+/*  base : box-sizeing ie7 지원안함 
+/* ------------------------------------ 
+* { -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; *behavior: url(../js/boxsizing.htc)}
+*/
+
+/*  base : png24
+/* ------------------------------------ */
+.png24 {tmp:expression(setPng24(this));}
+
+
+/*  base : skip navigation
+/* ------------------------------------ */
+.skip_navi{position:fixed;left:0;top:-67px;z-index:9999;}
+.skip_navi ul{width:124px;height:67px;background-color:#0062c3;}
+.skip_navi li{height:22px;line-height:22px;padding:0 10px;}
+.skip_navi li a{color:#fff;}
+
+
+/*  base : setting
+/* ------------------------------------ */
+#skip, .skip { font-size:0; width:0; height:0; line-height:0; position:absolute; left:-9999px; }
+.clear { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
+.fl {float:left !important;;}
+.fr {float:right !important;;}
+.tc {text-align:center !important;;}
+.tr {text-align:right !important;;}
+.tl {text-align:left !important;;}
+.fb {font-weight:bold !important;;}
+.vt {vertical-align:top !important;}
+.vm {vertical-align:middle !important;}
+.hidden {display:none;}
+
+strong { font-weight: bold; font-weight: 600; color: #000; }
+small { font-size: 0.95em }
+.elps{text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;}
+
+/*  base : color style
+/* ------------------------------------ */
+.white {color:#fff !important;}
+.black {color:#000 !important;}
+.gray {color:#666 !important;}
+.darkgray {color:#333 !important;}
+.darkblue {color:#0066cc !important;}
+.blue {color:#065ba5 !important;}
+.blue1 {color:#3d9eed !important;}
+.blue2 {color:#6eabe9 !important;}
+.blue3 {color:#c2dcf7 !important;}
+.blue4 {color:#e0eefd !important;}
+
+/*  base : list style
+/* ------------------------------------ */
+
+ul li {list-style:none;}
+ul.disc {list-style:disc;margin-bottom:10px;padding-left:2em;}
+ul.circle {list-style:circle;margin-bottom:10px;padding-left:2em;}
+ul.decimal {list-style:decimal;margin-bottom:10px;padding-left:2.4em;}
+
+
+.clearfix:after { content:""; display:block; clear:both;}
+.elip{text-overflow: ellipsis; white-space: nowrap; overflow: hidden;width:100%; }

@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+/* main */
+.division {margin-top:40px;}
+.division .lside {width:577px; float:left;}
+.division .lside .greenBox {margin-top:10px; width:575px; height:139px; background: url('../images/bg_link.png') no-repeat center;}
+.division .lside .greenBox:after { content:""; display:block; clear:both;}
+.division .lside .greenBox li {float:left; height:100%; margin:0; padding:0; border:0px solid red;}
+.division .lside .greenBox li.ql1 {width:124px;}
+.division .lside .greenBox li.ql2 {width:105px;}
+.division .lside .greenBox li.ql3 {width:105px;}
+.division .lside .greenBox li.ql4 {width:102px;}
+.division .lside .greenBox li.ql5 {width:139px;}
+.division .lside .greenBox li a {display: block; width:100%; height:100%;}
+.division .lside .greenBox li span {margin-left:-50000px;}
+
+.division .rside {width:577px; float:right;}
+.division .rside .orangeBox {margin-top:10px; width:575px; height:139px; background: url('../images/bg_rule.png') no-repeat center;}
+.division .rside .orangeBox li {float:left; height:100%; margin:0; padding:0; border:0px solid red;}
+.division .rside .orangeBox li.ru1 {width:124px;}
+.division .rside .orangeBox li.ru2 {width:105px;}
+.division .rside .orangeBox li.ru3 {width:105px;}
+.division .rside .orangeBox li.ru4 {width:102px;}
+.division .rside .orangeBox li.ru5 {width:138px;}
+.division .rside .orangeBox li a {display: block; width:100%; height:100%;}
+.division .rside .orangeBox li span {margin-left:-50000px;}
+
+.division .board {margin-top:25px;}
+.division .board .tabk li {float:left; width:19.8%; height:32px; line-height: 28px; margin:0; padding:0; font-size:14px; color:#7f7f7f; text-align: center; margin-left:-1px; background-color:#ebebeb; border:1px solid #b7b7b7;}
+.division .board .tabk li.active {background-color:#fff; border-bottom:none;}
+.division .board .tabk:after {content:""; display:block; clear:both;}
+
+.division .board .tabe li {float:left; width:33%; height:32px; line-height: 28px; margin:0; padding:0; font-size:14px; color:#7f7f7f; text-align: center; margin-left:-1px; background-color:#ebebeb; border:1px solid #b7b7b7;}
+.division .board .tabe li.active {background-color:#fff; border-bottom:none;}
+.division .board .tabe:after {content:""; display:block; clear:both;}
+.division .board .tab-content {margin-top:15px}
+.division .board .tab-content ul li {padding:4px 0; width:100%;}
+.division .board .tab-content ul li:after {content:""; display:block; clear:both;}
+.division .board .tab-content a {font-size:14px; color:#555; float:left;}
+.division .board .tab-content span {font-size:14px; color:#555; float:right;}
+
+.link {margin:40px 0 50px 0;}
+.link .lbox {float:left; height:124px;}
+.link .lbox .ibox {margin:14px;}
+.link .lbox .ibox ul {margin-top:10px;}
+.link .lbox .ibox ul li {float:left; width:129px; height:29px; line-height:28px; text-align: center; border:1px solid #d7d7d7; font-size:13px; margin:0 5px 5px 0; background-color: #fff;}
+.link .lbox .ibox ul li.active {border:1px solid #225b91; background-color: #225b91;}
+.link .lbox .ibox ul li.active a {color:#fff;}
+.link .lbox .ibox ul li:hover {border:1px solid #225b91; background-color: #225b91;}
+.link .lbox .ibox ul li:hover a {color:#fff;}
+.link .lp9 {padding-left:9px;}
+.link .lbox:after {content:""; display:block; clear:both;}
+.link .lbox.freshman {width:575px; background-color: #e3e1d8;}
+
+/* sub */
+.sub-contents {margin-top:45px; margin-bottom:30px;}
+.sub-contents .greeting-fl {float:left; width:700px; font-size:15px; color:#333;}
+.sub-contents .greeting-fl p {margin-bottom: 30px; line-height: 25px;}
+.sub-contents .greeting-fl p.title {color:#094885; font-size:24px; font-weight: bold; line-height: 30px;}
+.sub-contents .greeting-fl p.signature {text-align: right; color:#3f3f3f; font-size:18px; margin:70px 0;}
+.sub-contents .greeting-fr {float:right; }
+
+/* 생활관 소개 */
+.pbox {margin-bottom: 30px;}
+.pbox p {margin-bottom: 10px; font-size:16px;}
+.dor-gallery td img {width:260px; height:180px; cursor: pointer;}
+.dor-gallery td p {margin-bottom:20px; padding:5px; font-size: 15px;}
+.dor-gallery-layer {max-width: 550px;}
+.dor-gallery-layer {background-color: #fff; padding:10px; text-align: center;}
+.dor-gallery-layer h4 {font-size:16px;}
+.dor-gallery-layer img {max-width: 500px; margin-top: 10px;}
+.dor-gallery-layer p {max-width: 500px; margin:15px 0;}
+
+/* 건물별 호실소개 */
+.room-pictures {margin-top: 30px;}
+.room-pictures .room-preview {width:49%;}
+.room-pictures .room-preview p {font-size:16px; margin-bottom: 10px;}
+.room-preview ul li {float: left; margin:5px;}
+.room-preview ul li img {width:100px; cursor: pointer; height:80px;}
+
+/* 찾아오시는 길 */
+.map-txt {width:100%; margin:0 auto; margin-top: 30px;}
+
+/* 생활관 가이드북 */
+.guide-tab {width: 100%; margin-bottom: 30px; border-bottom:1px solid #C7C7C7}
+.guide-tab:after {content:""; clear: both; display: block;}
+.guide-tab li {float: left; width:16.5%; height:40px; line-height:40px;  text-align: center; margin-left: -1px; margin-bottom:1px}
+.guide-tab li a {display: block; background-color: #f4f4f4; border:1px solid #C7C7C7; font-size: 15px; font-weight:700;}
+.guide-tab li.active {}
+.guide-tab li.active a {font-weight: 700; background-color: #fff;  border-bottom: 1px solid #fff;}
+
+/* 학생생활관 규정 */
+.rule {}
+.rule .idx {font-weight: 700;}
+.rule .last {float: right; margin-top:-50px;}
+.rule h4 {font-size:16px; margin: 30px 0 5px 0;}
+.rule p {text-indent: 15px; padding:5px 0;}
+.rule ol, .rule ul {margin-left:0px;}
+.rule ol > li, .rule ul > li {padding: 1px 0 1px 0px; margin-right:20px;}
+.rule ul {margin-top:15px;}
+
+/* 벌점제도 및 벌점감면제도 */
+.penalty-tab {width: 100%; margin-bottom: 30px}
+.penalty-tab:after {content:""; clear: both; display: block;}
+.penalty-tab li {float: left; width:33.1%; height:40px; line-height:40px;  text-align: center; margin-left: -1px;}
+.penalty-tab li a {display: block; background-color: #f4f4f4; border:1px solid #C7C7C7; font-size: 14px;}
+.penalty-tab li.active {}
+.penalty-tab li.active a {font-weight: 700; background-color: #fff;  border-bottom: none;}
+
+
+/* 개인정보 처리방침 */
+.h4Priv {margin: 30px 0 10px 0; font-size:14px;}
+
+/* 이메일주소 무단수집 금지 */
+.email-policy {font-size:14px;}

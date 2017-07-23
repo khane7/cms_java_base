@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="ACCESS_LOG">
+
+
+	<select id="select_log" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT
+			*
+		FROM
+			access_log
+
+		ORDER BY
+		ordering
+		ASC
+	</select>
+
+
+
+	<insert id="insert_log" parameterType="java.util.HashMap" >
+		INSERT INTO
+			access_log
+			(
+				request_uri,
+				query_string,
+				remote_address,
+				server_name,
+				server_port,
+				locale,
+				browser,
+				referer,
+				session_id,
+				user_id,
+				response_time,
+				reg_date
+			)
+			VALUES (
+				#{request_uri},
+				#{query_string},
+				#{remote_address},
+				#{server_name},
+				#{server_port},
+				#{locale},
+				#{browser},
+				#{referer},
+				#{session_id},
+				#{user_id},
+				#{response_time},
+				now()
+			)
+	</insert>
+
+
+
+</mapper>
