@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="BANNER">
+
+
+	<select id="select_banner" resultType="BeanBanner" parameterType="java.util.HashMap">
+		SELECT
+			*
+		  FROM
+		  	tb_banner
+		  <where>
+			  <if test="idx != null and idx > 0">
+				  idx = #{idx}
+			  </if>
+			  <if test="title != null">
+				  AND title LIKE CONCAT('%', #{title}, '%')
+			  </if>
+		  </where>
+		ORDER BY
+			ordering
+		ASC
+	</select>
+
+
+	<insert id="insert_banner" parameterType="BeanBanner">
+		INSERT INTO
+			tb_banner
+		(
+			idx,
+			title,
+			link,
+			link_type,
+			banner_img,
+			ordering,
+			regdate
+		)
+		VALUES
+		(
+			#{ idx },
+			#{ title },
+			#{ link },
+			#{ link_type },
+			#{ banner_img },
+			#{ ordering },
+			#{ regdate }
+		)
+	</insert>
+
+
+
+	<update id="update_banner" parameterType="BeanBanner">
+		UPDATE
+			tb_banner
+		SET
+		<if test="title != null">
+			title = #{title}
+		</if>
+		<if test="link != null">
+			, link = #{link}
+		</if>
+		<if test="link_type != null">
+			, link_type = #{link_type}
+		</if>
+		<if test="banner_img != null">
+			, banner_img = #{banner_img}
+		</if>
+		<if test="ordering != 0">
+			, ordering = #{ordering}
+		</if>
+		<if test="regdate != null">
+			, regdate = #{regdate}
+		</if>
+		WHERE
+			idx = #{ idx }
+	</update>
+
+
+
+	<delete id="delete_banner" parameterType="java.lang.Integer">
+		DELETE
+		FROM
+			tb_banner
+		WHERE
+			idx = #{idx}
+	</delete>
+
+
+
+</mapper>

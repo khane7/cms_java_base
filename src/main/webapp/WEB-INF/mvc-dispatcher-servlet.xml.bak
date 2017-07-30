@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<context:component-scan base-package="com.humanwares.cms" />
+	<context:component-scan base-package="com.khane7.cms" />
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven  content-negotiation-manager="contentNegotiationManager" />
@@ -51,7 +51,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/cms_manager/board_manager/**"/>
 			<mvc:mapping path="/cms_manager/account_manager/**"/>
-			<bean class="com.humanwares.cms.Common.Interceptor" ></bean>
+			<bean class="com.khane7.cms.Common.Interceptor" ></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
@@ -98,9 +98,9 @@
 	<!--SqlSessionFactoryBean 활성화-->
 	<context:annotation-config />
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<!--<property name="typeAliases" value="com.humanwares.cms.Beans" />-->
+		<!--<property name="typeAliases" value="com.khane7.cms.Beans" />-->
 		<property name="dataSource" ref="dataSource" />
-		<property name="typeAliasesPackage" value="com.humanwares.cms.Beans" />
+		<property name="typeAliasesPackage" value="com.khane7.cms.Beans" />
 		<property name="mapperLocations" value="classpath*:com/humanwares/cms/Dao/Mappers/*.xml" />
 	</bean>
 
@@ -117,22 +117,22 @@
 
 
 	<!--각 Dao Autowired 활성화 Dao 모두 등록!!! -->
-	<bean id="daoBase" class ="com.humanwares.cms.Dao.DaoBase">
+	<bean id="daoBase" class ="com.khane7.cms.Dao.DaoBase">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoUsers" class ="com.humanwares.cms.Dao.DaoUsers">
+	<bean id="daoUsers" class ="com.khane7.cms.Dao.DaoUsers">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoBBS" class ="com.humanwares.cms.Dao.DaoBBS">
+	<bean id="daoBBS" class ="com.khane7.cms.Dao.DaoBBS">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoBoard" class ="com.humanwares.cms.Dao.DaoBoard">
+	<bean id="daoBoard" class ="com.khane7.cms.Dao.DaoBoard">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoBoardComment" class ="com.humanwares.cms.Dao.DaoBoardComment">
+	<bean id="daoBoardComment" class ="com.khane7.cms.Dao.DaoBoardComment">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoFile" class ="com.humanwares.cms.Dao.DaoFile">
+	<bean id="daoFile" class ="com.khane7.cms.Dao.DaoFile">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 
