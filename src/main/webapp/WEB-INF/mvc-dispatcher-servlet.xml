@@ -90,9 +90,9 @@
 		<!--<property name="url" value="jdbc:mysql://localhost:3306/user_dormitory" />
 		<property name="username" value="root" />
 		<property name="password" value="hopang" />-->
-		<property name="url" value="jdbc:mysql://115.68.182.124:3306/user_dormitory_eng" />
+		<property name="url" value="jdbc:mysql://localhost:3306/db_cms_base" />
 		<property name="username" value="root" />
-		<property name="password" value="Human!20150102" />
+		<property name="password" value="hopang" />
 		<property name="maxActive" value="100" />
 		<property name="maxIdle" value="30" />
 		<property name="maxWait" value="1000" />
@@ -113,7 +113,7 @@
 		<!--<property name="typeAliases" valcom.khane7.cms.Beans" />-->
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.khane7.cms.Beans" />
-		<property name="mapperLocations" value="classpath*:com/humanwares/cms/Dao/Mappers/*.xml" />
+		<property name="mapperLocations" value="classpath*:com/khane7/cms/Dao/Mappers/*.xml" />
 	</bean>
 
 

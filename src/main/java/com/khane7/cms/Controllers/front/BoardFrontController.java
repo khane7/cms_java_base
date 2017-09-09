@@ -220,8 +220,6 @@ public class BoardFrontController extends Application {
 			results.put("page", page );
 			results.put("PageLink", PageHelper.getPageLink(maxCount, page, viewCount));*/
 
-			Thread.sleep(500);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			results.put("status", "FAIL");
