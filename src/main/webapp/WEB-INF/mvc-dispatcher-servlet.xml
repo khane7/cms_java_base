@@ -113,7 +113,8 @@
 		<!--<property name="typeAliases" valcom.khane7.cms.Beans" />-->
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.khane7.cms.Beans" />
-		<property name="mapperLocations" value="classpath*:com/khane7/cms/Dao/Mappers/*.xml" />
+		<!--<property name="mapperLocations" value="classpath*:com/khane7/cms/Dao/Mappers/*.xml" />-->
+		<property name="mapperLocations" value="classpath:SQLMAP/*.xml" />
 	</bean>
 
 
