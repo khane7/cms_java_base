@@ -5,15 +5,15 @@
  
  
  
- <mapper namespace="users">
+ <mapper namespace="account">
 
 
 
-  	<select id="select_users_count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+  	<select id="select_account_count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
  		SELECT
  			COUNT(A.idx)
  		FROM 
- 			tb_users AS A
+ 			tb_account AS A
  		<where>
  			<if test="idx != null">
  				A.idx = #{ idx }
@@ -35,11 +35,11 @@
  	</select>
  
  
- 	<select id="select_users" parameterType="java.util.HashMap" resultType="BeanUsers">
+ 	<select id="select_account" parameterType="java.util.HashMap" resultType="com.khane7.cms.manager.account.vo.BeanAccount">
  		SELECT
  			*
  		FROM
-			tb_users AS A
+			tb_account AS A
  		<where>
  			<if test="idx != null">
  				A.idx = #{ idx }
@@ -73,9 +73,9 @@
  	</select>
  
  
-  	<insert id="insert_user" parameterType="BeanUsers">
+  	<insert id="insert_account" parameterType="com.khane7.cms.manager.account.vo.BeanAccount">
  		INSERT INTO
- 			tb_users
+ 			tb_account
  		(
  			user_id,
  			passwd,
@@ -98,9 +98,9 @@
  	</insert>
  
  
- 	<update id="update_user" parameterType="BeanUsers">
+ 	<update id="update_account" parameterType="com.khane7.cms.manager.account.vo.BeanAccount">
  		UPDATE
-			tb_users
+			tb_account
  		<set>
  			<if test="user_name != null">
  				user_name = #{ user_name },
@@ -119,7 +119,7 @@
  	
  	<update id="update_passwd" parameterType="java.util.HashMap">
  		UPDATE
- 			tb_users
+ 			tb_account
  		SET
  			passwd = MD5(#{passwd})
  		WHERE
@@ -129,7 +129,7 @@
  	
 	<update id="update_drop" parameterType="java.util.HashMap">
  		UPDATE
- 			tb_users
+ 			tb_account
  		SET
  			is_delete = 'Y'
  		WHERE

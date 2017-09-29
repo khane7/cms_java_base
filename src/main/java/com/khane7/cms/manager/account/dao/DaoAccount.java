@@ -31,7 +31,7 @@ public class DaoAccount extends DaoBase {
 		BeanAccount beanAccount = new BeanAccount();
 		
 		try {
-			beanAccount = (BeanAccount) getSqlSession().selectOne("users.select_users", paramsMap);
+			beanAccount = getSqlSession().selectOne("account.select_account", paramsMap);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -76,7 +76,7 @@ public class DaoAccount extends DaoBase {
 	 */
 	public int getUserCount (Map<String, Object> mapParams) {
 		
-		return getSqlSession().selectOne("users.select_users_count", mapParams);
+		return getSqlSession().selectOne("account.select_account_count", mapParams);
 	}
 	public int getUserCount (String searchKey, String searchValue ) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -92,7 +92,7 @@ public class DaoAccount extends DaoBase {
 	 */
 	public List<BeanAccount> getUserList (Map<String, Object> mapParams) {
 		
-		return getSqlSession().selectList("users.select_users", mapParams);
+		return getSqlSession().selectList("account.select_account", mapParams);
 	}
 	
 	public List<BeanAccount> getUserList (String searchKey, String searchValue, int pageNum, int limitCount, String ordering, String sort  ) {
@@ -119,7 +119,7 @@ public class DaoAccount extends DaoBase {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("user_id", user_id);
 		map.put("passwd", passwd);
-		getSqlSession().update("users.update_passwd", map);
+		getSqlSession().update("account.update_passwd", map);
 	}
 	
 	
@@ -130,9 +130,9 @@ public class DaoAccount extends DaoBase {
 	public void setUser ( BeanAccount beanUser ) {
 
 		if ( beanUser.getIdx() == 0 ) {
-			getSqlSession().insert("users.insert_user", beanUser);
+			getSqlSession().insert("account.insert_account", beanUser);
 		} else {
-			getSqlSession().insert("users.update_user", beanUser);
+			getSqlSession().insert("account.update_account", beanUser);
 		}
 		
 	}
@@ -146,7 +146,7 @@ public class DaoAccount extends DaoBase {
 	public void doDelete ( String user_id ) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("user_id", user_id);
-		getSqlSession().update("users.update_drop", map);
+		getSqlSession().update("account.update_drop", map);
 	}
 
 

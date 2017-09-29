@@ -95,7 +95,7 @@
 
 
 
-	<select id="select_bbs" parameterType="java.util.HashMap" resultType="BeanBBS" >
+	<select id="select_bbs" parameterType="java.util.HashMap" resultType="com.khane7.cms.manager.board_manager.vo.BeanBBS" >
 		SELECT
 			*
 	  	FROM
@@ -116,7 +116,7 @@
 
 
 
-	<insert id="insert_bbs" parameterType="BeanBBS">
+	<insert id="insert_bbs" parameterType="com.khane7.cms.manager.board_manager.vo.BeanBBS">
 		INSERT INTO
 			tb_bbs_manager
 		(
@@ -153,7 +153,7 @@
 	</insert>
 
 
-	<update id="update_bbs" parameterType="BeanBBS">
+	<update id="update_bbs" parameterType="com.khane7.cms.manager.board_manager.vo.BeanBBS">
 		UPDATE
 			tb_bbs_manager
 		SET
@@ -174,7 +174,7 @@
 	</update>
 
 
-	<delete id="delete_bbs" parameterType="BeanBBS" >
+	<delete id="delete_bbs" parameterType="com.khane7.cms.manager.board_manager.vo.BeanBBS" >
 		DELETE
 		FROM
 		tb_bbs_manager

@@ -33,7 +33,7 @@ public class LogInController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/cms_manager/")
+	@RequestMapping(value = { "/cms_manager", "/cms_manager/" } )
 	public String home(Locale locale, @RequestParam Map<String, String> mapParams, Model model, HttpSession session) {
 		
 		Date date = new Date();

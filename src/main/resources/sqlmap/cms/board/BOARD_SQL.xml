@@ -44,7 +44,7 @@
 	</select>
 
 
-	<select id="select_board" parameterType="java.util.HashMap" resultType="BeanBoard">
+	<select id="select_board" parameterType="java.util.HashMap" resultType="com.khane7.cms.manager.board.vo.BeanBoard">
 		SELECT
 			<if test="idx != null">
 				A.*,
@@ -121,7 +121,7 @@
 
 
 
-	<insert id="insert_board" parameterType="BeanBoard">
+	<insert id="insert_board" parameterType="com.khane7.cms.manager.board.vo.BeanBoard">
 		INSERT INTO
 			${ tb_name }
 		(
@@ -179,7 +179,7 @@
 
 
 
-	<update id="update_board" parameterType="BeanBoard">
+	<update id="update_board" parameterType="com.khane7.cms.manager.board.vo.BeanBoard">
 		UPDATE
 			${ tb_name }
 		SET

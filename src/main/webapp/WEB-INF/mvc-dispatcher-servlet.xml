@@ -12,7 +12,7 @@
 
 	<context:component-scan base-package="com.khane7.cms" />
 	<context:component-scan base-package="com.khane7.cms.Controllers" />
-	<context:component-scan base-package="com.khane7.cms.Service" />
+	<context:component-scan base-package="com.khane7.cms.service" />
 	<context:component-scan base-package="com.khane7.cms.Dao" />
 
 	<!-- Enables the Spring MVC @Controller programming model -->
@@ -80,6 +80,7 @@
 	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
 		<property name="maxUploadSize" value="50000000" />
 		<property name="uploadTempDir" value="resources/uploads/cms" />
+		<!--<property name="uploadTempDir" value="../resources/uploads/cms" />-->
 	</bean>
 
 
@@ -90,7 +91,7 @@
 		<!--<property name="url" value="jdbc:mysql://localhost:3306/user_dormitory" />
 		<property name="username" value="root" />
 		<property name="password" value="hopang" />-->
-		<property name="url" value="jdbc:mysql://localhost:3306/db_cms_base" />
+		<property name="url" value="jdbc:mysql://localhost:3306/db_cms" />
 		<property name="username" value="root" />
 		<property name="password" value="hopang" />
 		<property name="maxActive" value="100" />
@@ -114,7 +115,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.khane7.cms.Beans" />
 		<!--<property name="mapperLocations" value="classpath*:com/khane7/cms/Dao/Mappers/*.xml" />-->
-		<property name="mapperLocations" value="classpath*:sqlmap/**/*.xml" />
+		<property name="mapperLocations" value="classpath*:sqlmap/cms/**/*.xml" />
 	</bean>
 
 
@@ -127,7 +128,7 @@
 
 
 	<!--<aop:config proxy-target-class="true">
-			<aop:pointcut id="txAdvisePointCut" expression="execution(public * com.project..service.*Service.*(..))"/>
+			<aop:pointcut id="txAdvisePointCut" expression="execution(public * com.project..serviservicevice.*(..))"/>
 			<aop:advisor id="transactionAdvisor" pointcut-ref="txAdvisePointCut" advice-ref="txAdvice"/>
 		</aop:config>
 		<tx:advice id="txAdvice" transaction-manager="transactionManager">

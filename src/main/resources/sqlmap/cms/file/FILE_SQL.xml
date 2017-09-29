@@ -33,7 +33,7 @@
 	</select>
 
 
-	<select id="select_file" parameterType="java.util.HashMap" resultType="BeanFile">
+	<select id="select_file" parameterType="java.util.HashMap" resultType="com.khane7.cms.manager.file.vo.BeanFile">
 		SELECT
 			*
 		FROM
@@ -54,7 +54,7 @@
 	</select>
 
 
-	<insert id="insert_file" parameterType="BeanFile">
+	<insert id="insert_file" parameterType="com.khane7.cms.manager.file.vo.BeanFile">
 		INSERT INTO
 			tb_files
 		(
@@ -84,7 +84,7 @@
 
 
 
-	<update id="update_file" parameterType="BeanFile">
+	<update id="update_file" parameterType="com.khane7.cms.manager.file.vo.BeanFile">
 		UPDATE
 			tb_files
 		SET
@@ -122,7 +122,7 @@
 
 
 
-	<delete id="delete_file" parameterType="BeanFile">
+	<delete id="delete_file" parameterType="com.khane7.cms.manager.file.vo.BeanFile">
 		DELETE FROM
 			tb_files
 		<where>

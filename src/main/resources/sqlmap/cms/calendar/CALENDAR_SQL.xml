@@ -7,7 +7,7 @@
 <mapper namespace="CALENDAR">
 
 
-	<select id="select_calendar" resultType="BeanCalendar" parameterType="java.util.HashMap">
+	<select id="select_calendar" resultType="com.khane7.cms.manager.calendar.vo.BeanCalendar" parameterType="java.util.HashMap">
 		SELECT
 		*
 		FROM
@@ -37,7 +37,7 @@
 	</select>
 
 
-	<insert id="insert_calendar" parameterType="BeanCalendar">
+	<insert id="insert_calendar" parameterType="com.khane7.cms.manager.calendar.vo.BeanCalendar">
 		INSERT INTO
 			tb_calendar
 		(
@@ -66,7 +66,7 @@
 	</insert>
 
 
-	<update id="update_calendar" parameterType="BeanCalendar">
+	<update id="update_calendar" parameterType="com.khane7.cms.manager.calendar.vo.BeanCalendar">
 		UPDATE
 		tb_calendar
 		SET

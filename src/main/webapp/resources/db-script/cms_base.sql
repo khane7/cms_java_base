@@ -35,7 +35,7 @@ CREATE TABLE `access_log` (
   `session_id` varchar(80) NOT NULL DEFAULT '',
   `user_id` varchar(20) NOT NULL DEFAULT '',
   `response_time` int(11) NOT NULL DEFAULT '0',
-  `regdate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `regdate` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -63,7 +63,7 @@ CREATE TABLE `tb_banner` (
   `link_type` varchar(10) DEFAULT '_blank',
   `banner_img` mediumtext,
   `ordering` int(11) DEFAULT '99',
-  `regdate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `regdate` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`idx`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -99,7 +99,7 @@ CREATE TABLE `tb_bbs_manager` (
   `write_level` int(11) NOT NULL DEFAULT '99',
   `page_count` int(11) NOT NULL DEFAULT '15',
   `description` text,
-  `regdate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `regdate` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`idx`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -129,7 +129,7 @@ CREATE TABLE `tb_calendar` (
   `ed_date` datetime DEFAULT NULL,
   `is_open` char(1) DEFAULT NULL,
   `is_loop` char(1) DEFAULT NULL,
-  `regdate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `regdate` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`idx`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -159,7 +159,7 @@ CREATE TABLE `tb_files` (
   `filename` varchar(200) DEFAULT NULL,
   `fileext` varchar(10) DEFAULT NULL,
   `filesize` varchar(45) DEFAULT NULL,
-  `regdate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `regdate` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`idx`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -209,19 +209,19 @@ LOCK TABLES `tb_popup` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_users`
+-- Table structure for table `tb_account`
 --
 
-DROP TABLE IF EXISTS `tb_users`;
+DROP TABLE IF EXISTS `tb_account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_users` (
+CREATE TABLE `tb_account` (
   `idx` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(100) NOT NULL,
   `passwd` varchar(150) NOT NULL,
   `user_name` varchar(30) NOT NULL,
   `level` int(11) NOT NULL DEFAULT '1',
-  `regdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `regdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `is_admin` char(1) NOT NULL DEFAULT 'N',
   `is_delete` char(1) NOT NULL DEFAULT 'N',
   PRIMARY KEY (`idx`),
@@ -230,12 +230,12 @@ CREATE TABLE `tb_users` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_users`
+-- Dumping data for table `tb_account`
 --
 
-LOCK TABLES `tb_users` WRITE;
-/*!40000 ALTER TABLE `tb_users` DISABLE KEYS */;
-INSERT INTO `tb_users` VALUES (4,'admin','21232f297a57a5a743894a0e4a801fc3','관리자',99,'2017-05-23 11:10:48','Y','N');
+LOCK TABLES `tb_account` WRITE;
+/*!40000 ALTER TABLE `tb_account` DISABLE KEYS */;
+INSERT INTO `tb_account` VALUES (4,'admin','21232f297a57a5a743894a0e4a801fc3','관리자',99,'2017-05-23 11:10:48','Y','N');
 /*!40000 ALTER TABLE `tb_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

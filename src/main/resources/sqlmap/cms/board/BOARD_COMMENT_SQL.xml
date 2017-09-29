@@ -32,7 +32,7 @@
 	</select>
 
 
-	<select id="select_comment" parameterType="java.util.HashMap" resultType="BeanComment">
+	<select id="select_comment" parameterType="java.util.HashMap" resultType="com.khane7.cms.manager.board.vo.BeanComment">
 		SELECT
 			*
 		FROM
@@ -59,7 +59,7 @@
 	</select>
 
 
-	<insert id="insert_comment" parameterType="BeanComment">
+	<insert id="insert_comment" parameterType="com.khane7.cms.manager.board.vo.BeanComment">
 		INSERT INTO
 			${ tb_name }
 		(
@@ -113,7 +113,7 @@
 
 
 
-	<update id="update_comment" parameterType="BeanComment">
+	<update id="update_comment" parameterType="com.khane7.cms.manager.board.vo.BeanComment">
 		UPDATE
 			${ tb_name }
 		SET

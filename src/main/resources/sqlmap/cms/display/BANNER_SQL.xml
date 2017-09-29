@@ -7,7 +7,7 @@
 <mapper namespace="BANNER">
 
 
-	<select id="select_banner" resultType="BeanBanner" parameterType="java.util.HashMap">
+	<select id="select_banner" resultType="com.khane7.cms.manager.display.vo.BeanBanner" parameterType="java.util.HashMap">
 		SELECT
 			*
 		  FROM
@@ -26,7 +26,7 @@
 	</select>
 
 
-	<insert id="insert_banner" parameterType="BeanBanner">
+	<insert id="insert_banner" parameterType="com.khane7.cms.manager.display.vo.BeanBanner">
 		INSERT INTO
 			tb_banner
 		(
@@ -52,7 +52,7 @@
 
 
 
-	<update id="update_banner" parameterType="BeanBanner">
+	<update id="update_banner" parameterType="com.khane7.cms.manager.display.vo.BeanBanner">
 		UPDATE
 			tb_banner
 		SET

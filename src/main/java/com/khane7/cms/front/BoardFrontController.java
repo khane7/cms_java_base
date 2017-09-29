@@ -13,7 +13,7 @@ import com.khane7.cms.manager.board.dao.DaoBoard;
 import com.khane7.cms.manager.board.dao.DaoBoardComment;
 import com.khane7.cms.manager.file.dao.DaoFile;
 
-import com.khane7.cms.Service.BoardService;
+import com.khane7.cms.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

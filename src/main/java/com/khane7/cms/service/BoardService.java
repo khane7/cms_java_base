@@ -1,4 +1,4 @@
-package com.khane7.cms.Service;
+package com.khane7.cms.service;
 
 import com.khane7.cms.manager.board_manager.vo.BeanBBS;
 import com.khane7.cms.manager.board.vo.BeanBoard;

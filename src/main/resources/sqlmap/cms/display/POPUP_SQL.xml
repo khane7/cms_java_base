@@ -7,7 +7,7 @@
 <mapper namespace="POPUP">
 
 
-	<select id="select_popup" resultType="BeanPopup" parameterType="java.util.HashMap">
+	<select id="select_popup" resultType="com.khane7.cms.manager.display.vo.BeanPopup" parameterType="java.util.HashMap">
 		SELECT
 			*
 		  FROM
@@ -26,7 +26,7 @@
 	</select>
 
 
-	<insert id="insert_popup" parameterType="BeanPopup">
+	<insert id="insert_popup" parameterType="com.khane7.cms.manager.display.vo.BeanPopup">
 		INSERT INTO
 			tb_popup
 		(
@@ -66,7 +66,7 @@
 
 
 
-	<update id="update_popup" parameterType="BeanPopup">
+	<update id="update_popup" parameterType="com.khane7.cms.manager.display.vo.BeanPopup">
 		UPDATE
 		tb_popup
 		SET
