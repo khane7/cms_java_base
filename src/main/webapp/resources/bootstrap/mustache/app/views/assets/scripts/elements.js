@@ -15,7 +15,7 @@ jQuery(function($) {
 
 	
 	/**
-		//go to next tab, without user clicking
+		//go to next tab, without account clicking
 		$('#myTab > .active').next().find('> a').trigger('click');
 	*/
 

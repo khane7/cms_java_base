@@ -27,7 +27,7 @@ function userTotalCallback( data ) {
 
 }
 function userInfoDetail() {
-    DbsEsmt.api( "get", "https://api.hanyang.ac.kr/rs/user/loginInfo.json", { },  userTotalCallback );
+    DbsEsmt.api( "get", "https://api.hanyang.ac.kr/rs/account/loginInfo.json", { },  userTotalCallback );
 }
 
 function logout() {

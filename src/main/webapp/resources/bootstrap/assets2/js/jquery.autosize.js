@@ -250,7 +250,7 @@
 			}
 
 			// Event for manual triggering if needed.
-			// Should only be needed when the value of the textarea is changed through JavaScript rather than user input.
+			// Should only be needed when the value of the textarea is changed through JavaScript rather than account input.
 			$ta.on('autosize.resize', adjust);
 
 			// Event for manual triggering that also forces the styles to update as well.

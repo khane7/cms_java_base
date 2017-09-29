@@ -1,7 +1,7 @@
 package com.khane7.cms;
 
-import com.khane7.cms.Dao.DaoBBS;
-import com.khane7.cms.Dao.DaoDisplay;
+import com.khane7.cms.manager.board_manager.dao.DaoBBS;
+import com.khane7.cms.manager.display.dao.DaoDisplay;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -7275,7 +7275,7 @@ less.fileAsync = less.fileAsync || false;
 // Interval between watch polls
 less.poll = less.poll || (isFileProtocol ? 1000 : 1500);
 
-//Setup user functions
+//Setup account functions
 if (less.functions) {
     for(var func in less.functions) {
         if (less.functions.hasOwnProperty(func)) {

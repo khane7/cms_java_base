@@ -247,9 +247,9 @@ ace.settings.check = function(item, val) {
 
 
 	//if an element doesn't have a specified class, but saved settings say it should, then add it
-	//for example, sidebar isn't .fixed, but user fixed it on a previous page
+	//for example, sidebar isn't .fixed, but account fixed it on a previous page
 	//or if an element has a specified class, but saved settings say it shouldn't, then remove it
-	//for example, sidebar by default is minimized (.menu-min hard coded), but user expanded it and now shouldn't have 'menu-min' class
+	//for example, sidebar by default is minimized (.menu-min hard coded), but account expanded it and now shouldn't have 'menu-min' class
 	
 	var target = document.getElementById(item);//#navbar, #sidebar, #breadcrumbs
 	if(status != ace.hasClass(target , mustHaveClass[item+'-'+val])) {

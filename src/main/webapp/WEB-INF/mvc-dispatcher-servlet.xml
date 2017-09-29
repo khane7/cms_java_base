@@ -55,7 +55,7 @@
 			<mvc:mapping path="/cms_manager/doLogin"/>
 			<mvc:mapping path="/cms_manager/board_manager/**"/>
 			<mvc:mapping path="/cms_manager/account_manager/**"/>
-			<bean class="com.khane7.cms.Common.Interceptor" ></bean>
+			<bean class="com.khane7.common.Interceptor" ></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
@@ -114,7 +114,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.khane7.cms.Beans" />
 		<!--<property name="mapperLocations" value="classpath*:com/khane7/cms/Dao/Mappers/*.xml" />-->
-		<property name="mapperLocations" value="classpath:SQLMAP/*.xml" />
+		<property name="mapperLocations" value="classpath*:sqlmap/**/*.xml" />
 	</bean>
 
 
@@ -145,31 +145,31 @@
 
 
 	<!--각 Dao Autowired 활성화 Dao 모두 등록!!! -->
-	<bean id="daoBase" class ="com.khane7.cms.Dao.DaoBase">
+	<bean id="daoBase" class ="com.khane7.cms.manager.system.dao.DaoBase">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoUsers" class ="com.khane7.cms.Dao.DaoUsers">
+	<bean id="daoUsers" class ="com.khane7.cms.manager.account.dao.DaoAccount">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoBBS" class ="com.khane7.cms.Dao.DaoBBS">
+	<bean id="daoBBS" class ="com.khane7.cms.manager.board_manager.dao.DaoBBS">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoBoard" class ="com.khane7.cms.Dao.DaoBoard">
+	<bean id="daoBoard" class ="com.khane7.cms.manager.board.dao.DaoBoard">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoBoardComment" class ="com.khane7.cms.Dao.DaoBoardComment">
+	<bean id="daoBoardComment" class ="com.khane7.cms.manager.board.dao.DaoBoardComment">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoFile" class ="com.khane7.cms.Dao.DaoFile">
+	<bean id="daoFile" class ="com.khane7.cms.manager.file.dao.DaoFile">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoDisplay" class ="com.khane7.cms.Dao.DaoDisplay">
+	<bean id="daoDisplay" class ="com.khane7.cms.manager.display.dao.DaoDisplay">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoCalendar" class ="com.khane7.cms.Dao.DaoCalendar">
+	<bean id="daoCalendar" class ="com.khane7.cms.manager.calendar.dao.DaoCalendar">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="daoLog" class ="com.khane7.cms.Dao.DaoLog">
+	<bean id="daoLog" class ="com.khane7.cms.manager.system.dao.DaoLog">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 

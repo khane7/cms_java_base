@@ -100,7 +100,7 @@
 			if(typeof files[i] === "string") filename = files[i];
 			else if(hasFile && files[i] instanceof File) filename = $.trim( files[i].name );
 			else if(files[i] instanceof Object && files[i].hasOwnProperty('name')) {
-				//format & name specified by user (pre-displaying name, etc)
+				//format & name specified by account (pre-displaying name, etc)
 				filename = files[i].name;
 				if(files[i].hasOwnProperty('type')) format = files[i].type;
 				if(!files[i].hasOwnProperty('path')) files[i].path = files[i].name;
@@ -275,7 +275,7 @@
 			if(file_list === false) return false;
 
 			self.$element.data('ace_input_method', 'drop');
-			self.$element.data('ace_input_files', file_list);//save files data to be used later by user
+			self.$element.data('ace_input_files', file_list);//save files data to be used later by account
 
 			self.show_file_list(file_list , true);
 			
@@ -362,7 +362,7 @@
 		}
 		else {
 			if(file instanceof Object && file.hasOwnProperty('path')) {
-				getImage(file.path);//file is a file name (path) --- this is used to pre-show user-selected image
+				getImage(file.path);//file is a file name (path) --- this is used to pre-show account-selected image
 			}
 		}
 		

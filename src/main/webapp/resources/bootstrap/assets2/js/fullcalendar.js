@@ -814,7 +814,7 @@ function Calendar(element, instanceOptions) {
 
 
 	function refetchEvents() { // can be called as an API method
-		destroyEvents(); // so that events are cleared before user starts waiting for AJAX
+		destroyEvents(); // so that events are cleared before account starts waiting for AJAX
 		fetchAndRenderEvents();
 	}
 
@@ -3439,7 +3439,7 @@ Popover.prototype = {
 	},
 
 
-	// Triggered when the user clicks *anywhere* in the document, for the autoHide feature
+	// Triggered when the account clicks *anywhere* in the document, for the autoHide feature
 	documentMousedown: function(ev) {
 		// only hide the popover if the click happened outside the popover
 		if (this.el && !$(ev.target).closest(this.el).length) {
@@ -3532,7 +3532,7 @@ Popover.prototype = {
 
 /* A "coordinate map" converts pixel coordinates into an associated cell, which has an associated date
 ------------------------------------------------------------------------------------------------------------------------
-Common interface:
+common interface:
 
 	CoordMap.prototype = {
 		build: function() {},
@@ -3720,7 +3720,7 @@ DragListener.prototype = {
 	scrollIntervalMs: 50, // millisecond wait between scroll increment
 
 
-	// Call this when the user does a mousedown. Will probably lead to startListening
+	// Call this when the account does a mousedown. Will probably lead to startListening
 	mousedown: function(ev) {
 		if (isPrimaryMouseButton(ev)) {
 
@@ -3785,7 +3785,7 @@ DragListener.prototype = {
 	},
 
 
-	// Called when the user moves the mouse
+	// Called when the account moves the mouse
 	mousemove: function(ev) {
 		var minDistance;
 		var distanceSq; // current distance from mouseX0/mouseY0, squared
@@ -3866,7 +3866,7 @@ DragListener.prototype = {
 	},
 
 
-	// Called when the user does a mouseup
+	// Called when the account does a mouseup
 	mouseup: function(ev) {
 		this.stopDrag(ev);
 		this.stopListening(ev);
@@ -3884,7 +3884,7 @@ DragListener.prototype = {
 	},
 
 
-	// Call this to stop listening to the user's mouse events
+	// Call this to stop listening to the account's mouse events
 	stopListening: function(ev) {
 		if (this.isListening) {
 
@@ -4256,7 +4256,7 @@ MouseFollower.prototype = {
 	},
 
 
-	// Gets called when the user moves the mouse
+	// Gets called when the account moves the mouse
 	mousemove: function(ev) {
 		this.topDelta = ev.pageY - this.mouseY0;
 		this.leftDelta = ev.pageX - this.mouseX0;
@@ -4824,7 +4824,7 @@ $.extend(Grid.prototype, {
 
 $.extend(Grid.prototype, {
 
-	mousedOverSeg: null, // the segment object the user's mouse is over. null if over nothing
+	mousedOverSeg: null, // the segment object the account's mouse is over. null if over nothing
 	isDraggingSeg: false, // is a segment being dragged? boolean
 	isResizingSeg: false, // is a segment being resized? boolean
 	segs: null, // the event segments currently rendered in the grid
@@ -4859,7 +4859,7 @@ $.extend(Grid.prototype, {
 
 	// Unrenders all events currently rendered on the grid
 	destroyEvents: function() {
-		this.triggerSegMouseout(); // trigger an eventMouseout if user's mouse is over an event
+		this.triggerSegMouseout(); // trigger an eventMouseout if account's mouse is over an event
 
 		this.destroyFgSegs();
 		this.destroyBgSegs();
@@ -5068,7 +5068,7 @@ $.extend(Grid.prototype, {
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Called when the user does a mousedown on an event, which might lead to dragging.
+	// Called when the account does a mousedown on an event, which might lead to dragging.
 	// Generic enough to work with any type of Grid.
 	segDragMousedown: function(seg, ev) {
 		var _this = this;
@@ -5196,7 +5196,7 @@ $.extend(Grid.prototype, {
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Called when the user does a mousedown on an event's resizer, which might lead to resizing.
+	// Called when the account does a mousedown on an event's resizer, which might lead to resizing.
 	// Generic enough to work with any type of Grid.
 	segResizeMousedown: function(seg, ev) {
 		var _this = this;
@@ -6379,7 +6379,7 @@ $.extend(DayGrid.prototype, {
 			content: this.renderSegPopoverContent(date, segs),
 			parentEl: this.el,
 			top: topEl.offset().top,
-			autoHide: true, // when the user clicks elsewhere, hide the popover
+			autoHide: true, // when the account clicks elsewhere, hide the popover
 			viewportConstrain: view.opt('popoverViewportConstrain'),
 			hide: function() {
 				// destroy everything when the popover is hidden
@@ -7390,7 +7390,7 @@ View.prototype = {
 	rowCnt: null, // # of weeks
 	colCnt: null, // # of days displayed in a week
 
-	isSelected: false, // boolean whether cells are user-selected or not
+	isSelected: false, // boolean whether cells are account-selected or not
 
 	// subclasses can optionally use a scroll container
 	scrollerEl: null, // the element that will most likely scroll when content is too tall
@@ -7750,11 +7750,11 @@ View.prototype = {
 	},
 
 
-	// Handler for unselecting when the user clicks something and the 'unselectAuto' setting is on
+	// Handler for unselecting when the account clicks something and the 'unselectAuto' setting is on
 	documentMousedown: function(ev) {
 		var ignore;
 
-		// is there a selection, and has the user made a proper left click?
+		// is there a selection, and has the account made a proper left click?
 		if (this.isSelected && this.opt('unselectAuto') && isPrimaryMouseButton(ev)) {
 
 			// only unselect if the clicked element is not identical to or inside of an 'unselectCancel' element
@@ -9043,7 +9043,7 @@ $.extend(AgendaView.prototype, {
 	},
 
 
-	// Sets the scroll value of the scroller to the intial pre-configured state prior to allowing the user to change it.
+	// Sets the scroll value of the scroller to the intial pre-configured state prior to allowing the account to change it.
 	resetScroll: function() {
 		var _this = this;
 		var scrollTime = moment.duration(this.opt('scrollTime'));

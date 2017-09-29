@@ -1,6 +1,6 @@
 package com.khane7.cms;
 
-import com.khane7.cms.Beans.BeanUsers;
+import com.khane7.cms.manager.account.vo.BeanAccount;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,8 +38,8 @@ public class Application {
 	public Map<String, Object> results;
 
 
-	public BeanUsers getSSUser () {
-		return (BeanUsers) session.getAttribute("session_user");
+	public BeanAccount getSSUser () {
+		return (BeanAccount) session.getAttribute("session_user");
 	}
 
 

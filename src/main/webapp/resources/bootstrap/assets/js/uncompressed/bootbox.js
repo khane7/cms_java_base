@@ -218,7 +218,7 @@
   }
 
   /**
-   * merge a set of default dialog options with user supplied arguments
+   * merge a set of default dialog options with account supplied arguments
    */
   function mergeArguments(defaults, args, properties) {
     return $.extend(
@@ -249,9 +249,9 @@
     };
 
     // ensure the buttons properties generated, *after* merging
-    // with user args are still valid against the supplied labels
+    // with account args are still valid against the supplied labels
     return validateButtons(
-      // merge the generated base properties with user supplied arguments
+      // merge the generated base properties with account supplied arguments
       mergeArguments(
         baseOptions,
         args,
@@ -326,7 +326,7 @@
     options = mergeDialogOptions("confirm", ["cancel", "confirm"], ["message", "callback"], arguments);
 
     /**
-     * overrides; undo anything the user tried to set they shouldn't have
+     * overrides; undo anything the account tried to set they shouldn't have
      */
     options.buttons.cancel.callback = options.onEscape = function() {
       return options.callback(false);
@@ -376,7 +376,7 @@
       ["cancel", "confirm"]
     );
 
-    // capture the user's show value; we always set this to false before
+    // capture the account's show value; we always set this to false before
     // spawning the dialog to give us a chance to attach some handlers to
     // it, but we need to make sure we respect a preference not to show it
     shouldShow = (options.show === undefined) ? true : options.show;
@@ -390,7 +390,7 @@
     }
 
     /**
-     * overrides; undo anything the user tried to set they shouldn't have
+     * overrides; undo anything the account tried to set they shouldn't have
      */
     options.message = form;
 
@@ -665,7 +665,7 @@
     });
 
     /**
-     * Standard jQuery event listeners; used to handle user
+     * Standard jQuery event listeners; used to handle account
      * interaction with our dialog
      */
 
@@ -678,7 +678,7 @@
 
     dialog.on("click", ".bootbox-close-button", function(e) {
       // onEscape might be falsy but that's fine; the fact is
-      // if the user has managed to click the close button we
+      // if the account has managed to click the close button we
       // have to close the dialog, callback or not
       processCallback(e, dialog, callbacks.onEscape);
     });

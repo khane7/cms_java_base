@@ -1,12 +1,12 @@
 package com.khane7.cms.Service;
 
-import com.khane7.cms.Beans.BeanBBS;
-import com.khane7.cms.Beans.BeanBoard;
-import com.khane7.cms.Common.PageHelper;
-import com.khane7.cms.Common.Utility;
-import com.khane7.cms.Dao.DaoBBS;
-import com.khane7.cms.Dao.DaoBoard;
-import com.khane7.cms.Dao.DaoFile;
+import com.khane7.cms.manager.board_manager.vo.BeanBBS;
+import com.khane7.cms.manager.board.vo.BeanBoard;
+import com.khane7.common.PageHelper;
+import com.khane7.common.Utility;
+import com.khane7.cms.manager.board_manager.dao.DaoBBS;
+import com.khane7.cms.manager.board.dao.DaoBoard;
+import com.khane7.cms.manager.file.dao.DaoFile;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

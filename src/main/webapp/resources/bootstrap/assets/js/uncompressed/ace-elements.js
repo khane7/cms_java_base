@@ -804,7 +804,7 @@
 			if(file_list === false) return false;
 
 			self.$element.data('ace_input_method', 'drop');
-			self.$element.data('ace_input_files', file_list);//save files data to be used later by user
+			self.$element.data('ace_input_files', file_list);//save files data to be used later by account
 
 			self.show_file_list(file_list);
 			

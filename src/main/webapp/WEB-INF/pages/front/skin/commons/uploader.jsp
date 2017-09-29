@@ -348,7 +348,7 @@ window.jQuery || document.write("<script src='${ pageContext.request.contextPath
 					//because browser keeps all selected files anyway and this cannot be changed
 					//we can only reset file field to become empty again
 					//on any case you still should check files with your server side script
-					//because any arbitrary file can be uploaded by user and it's not safe to rely on browser-side measures
+					//because any arbitrary file can be uploaded by account and it's not safe to rely on browser-side measures
 				});
 
 	});

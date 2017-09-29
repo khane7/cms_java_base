@@ -19,7 +19,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Ace\'s JavaScript requires
 
 	ace.vars['touch']	= ('ontouchstart' in window);//(('ontouchstart' in document.documentElement) || (window.DocumentTouch && document instanceof DocumentTouch));
 	
-	//sometimes the only good way to work around browser's pecularities is to detect them using user-agents
+	//sometimes the only good way to work around browser's pecularities is to detect them using account-agents
 	//though it's not accurate
 	var agent = navigator.userAgent
 	ace.vars['webkit'] = !!agent.match(/AppleWebKit/i)
@@ -416,12 +416,12 @@ jQuery(function($) {
 			$sub.css('height', height + (!tabbed ? 2 : 7));//for bottom border adjustment and tab content paddings
 			
 			
-			if($sub.hasClass('user-menu')) {
-				$sub.css('height', '');//because of user-info hiding/showing at different widths, which changes above 'scrollHeight', so we remove it!
+			if($sub.hasClass('account-menu')) {
+				$sub.css('height', '');//because of account-info hiding/showing at different widths, which changes above 'scrollHeight', so we remove it!
 				
-				//user menu is re-positioned in small widths
+				//account menu is re-positioned in small widths
 				//but we need to re-position again in small heights as well (modal mode)
-				var user_info = $(this).find('.user-info');
+				var user_info = $(this).find('.account-info');
 				if(user_info.length == 1 && user_info.css('position') == 'fixed') {
 					user_info.css({'left': left, 'right': 'auto', 'top': top, 'width': width - 2, 'max-width': width - 2, 'z-index': zindex + 1});
 				}
@@ -445,7 +445,7 @@ jQuery(function($) {
 		})
 	  }
 
-	  //reset scrollbars and user menu
+	  //reset scrollbars and account menu
 	  function resetNavbarDropdown($sub) {
 		$sub = $sub || $(this).find('> .dropdown-menu');
 	  
@@ -461,9 +461,9 @@ jQuery(function($) {
 				$(this).ace_scroll('update', {size: size}).ace_scroll('enable').ace_scroll('reset');
 			})
 			
-			if( $sub.hasClass('user-menu') ) {
+			if( $sub.hasClass('account-menu') ) {
 				var user_info = 
-				$(this).find('.user-info')
+				$(this).find('.account-info')
 				.css({'left': '', 'right': '', 'top': '', 'width': '', 'max-width': '', 'z-index': ''});
 			}
 		}
