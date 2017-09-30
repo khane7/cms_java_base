@@ -59,7 +59,7 @@
 					<div class="center">
 						<h1>
 							<i class="ace-icon fa fa-leaf green"></i>
-							<span class="red">한양대 관리자</span>
+							<span class="red">GW khane7</span>
 							<span class="white" id="id-text2">Application</span>
 						</h1>
 						<h4 class="blue" id="id-company-text">&copy; Humanwares</h4>
