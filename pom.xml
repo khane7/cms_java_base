@@ -4,10 +4,10 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.springapp</groupId>
-	<artifactId>site_humanwares_cms</artifactId>
+	<artifactId>cms_khane7</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>site_humanwares_cms</name>
+	<name>cms_khane7</name>
 
 	<properties>
 		<spring.version>4.1.1.RELEASE</spring.version>
