@@ -37,10 +37,10 @@
 					<table class="table table-striped table-bordered table-hover">
 						<tbody id="tr-files-list">
 							<thead>
-								<td>thumbnail</td>
+								<td style="width:20px;">thumbnail</td>
 								<td>파일명</td>
-								<td>용량</td>
-								<td>삭제</td>
+								<td style="width:150px;">용량</td>
+								<td style="width:150px;">control</td>
 							</thead>
 						</tbody>
 					</table>
@@ -294,7 +294,7 @@
 					getFileList4Idx();
 				})
 				.fail(function (result) {//failure
-					alert(result.status + ":::::::::::::There was an error");
+					alert(result.responseText + ":::::::::::::" + result.status + ":::::::::::::There was an error");
 					console.log(result.responseText);
 				})
 				.always(function () {//called on both success and failure
@@ -403,10 +403,13 @@
 					file = objResult.beanFileList[i];
 					$('#tr-files-list').append(
 							"<tr id='file-" + file.idx + "'>" +
-								"<td><input type='radio' class='rb-thumbnail' name='rb-thumbnail' value='" + file.idx + "' onclick='javascript:setThumbail(" + file.idx + ");'></td>" +
+								"<td style='width:20px;'><input type='radio' class='rb-thumbnail' name='rb-thumbnail' value='" + file.idx + "' onclick='javascript:setThumbail(" + file.idx + ");'></td>" +
 								"<td>" + file.filename + "</td>" +
-								"<td>" + file.filesize / 100 + " kb</td>" +
-								"<td><button type='button' class='btn btn-xs btn-danger' onclick='javascript:deleteFile(" + file.idx + ");'><span><i class='ace-icon fa fa-ban bigger-110'></i>삭제</span></button></td>" +
+								"<td style='width:150px;'>" + convertFileSize( file.filesize ) + "</td>" +
+								"<td style='width:150px;'>" +
+								"	<button type='button' class='btn btn-xs btn-primary' onclick='javascript:getBoardFile(" + file.idx + ");'><span><i class='ace-icon fa fa-cloud-download bigger-110'></i> 다운</span></button>" +
+								"	<button type='button' class='btn btn-xs btn-danger' onclick='javascript:deleteFile(" + file.idx + ");'><span><i class='ace-icon fa fa-ban bigger-110'></i> 삭제</span></button>" +
+								"</td>" +
 							"</tr>"
 					);
 				}
@@ -427,10 +430,13 @@
 					file = files[i];
 					$('#tr-files-list').append(
 							"<tr id='file-" + file.idx + "'>" +
-								"<td><input type='radio' class='rb-thumbnail' name='rb-thumbnail' value='" + file.idx + "' onclick='javascript:setThumbail(" + file.idx + ");'></td>" +
+								"<td style='width:20px;'><input type='radio' class='rb-thumbnail' name='rb-thumbnail' value='" + file.idx + "' onclick='javascript:setThumbail(" + file.idx + ");'></td>" +
 								"<td>" + file.filename + "</td>" +
-								"<td>" + file.filesize / 1000 + " kb</td>" +
-								"<td><button type='button' class='btn btn-xs btn-danger' onclick='javascript:deleteFile(" + file.idx + ");'><span><i class='ace-icon fa fa-ban bigger-110'></i>삭제</span></button></td>" +
+								"<td style='width:150px;'>" + convertFileSize( file.filesize ) + "</td>" +
+								"<td style='width:150px;'>" +
+								"	<button type='button' class='btn btn-xs btn-primary' onclick='javascript:getBoardFile(" + file.idx + ");'><span><i class='ace-icon fa fa-cloud-download bigger-110'></i> 다운</span></button>" +
+								"	<button type='button' class='btn btn-xs btn-danger' onclick='javascript:deleteFile(" + file.idx + ");'><span><i class='ace-icon fa fa-ban bigger-110'></i> 삭제</span></button>" +
+								"</td>" +
 							"</tr>"
 					);
 				}

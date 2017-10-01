@@ -353,3 +353,25 @@ var goPageNum = function (pageNum) {
 	}
 	*/
 }
+
+
+var convertFileSize = function ( bytes ) {
+
+	var bytes = parseInt(bytes);
+	var s = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB'];
+	var e = Math.floor(Math.log(bytes)/Math.log(1024));
+
+	if(e == "-Infinity") {
+		return "0 "+s[0];
+	} else {
+		return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+	}
+}
+
+
+var getBoardFile = function ( file_idx ) {
+
+	//${pageContext.request.contextPath}/cms_manager/file/download?file_idx=${ file.idx }
+	location.href = "/cms_manager/file/download?file_idx=" + file_idx;
+
+}

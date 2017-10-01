@@ -28,8 +28,8 @@ public class Application {
 	public static final String FRONT = "";
 
 
-	public static String error404 = "cms_manager/error/404";
-	public static String error500 = "cms_manager/error/500";
+	public static String error404 = MANAGER + "error/404";
+	public static String error500 = MANAGER + "error/500";
 
 	public static String redirectError404 = "redirect:/common/error-404";
 	public static String redirectError500 = "redirect:/common/error-500";

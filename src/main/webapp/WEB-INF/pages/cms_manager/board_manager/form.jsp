@@ -72,20 +72,20 @@
 
 									<!-- #section:elements.form -->
 									<div class="form-group">
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 게시판 코드 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="board_key"> 게시판 코드 </label>
 										<div class="col-sm-9">
 											<input class="col-xs-10 col-sm-3" id="board_key" name="board_key" type="text" placeholder="게시판 코드를 입력해주세요.">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 게시판 명 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="board_name"> 게시판 명 </label>
 										<div class="col-sm-9">
 											<input class="col-xs-10 col-sm-3" id="board_name" name="board_name" type="text" placeholder="게시판 명을 입력해주세요.">
 										</div>
 									</div>
 
 									<div id="div-skin" class="form-group" >
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 스킨 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="skin"> 스킨 </label>
 										<div class="col-sm-9">
 											<label>
 												<select id="skin" name="skin" class="ace ace-switch ace-switch-5" >
@@ -99,7 +99,7 @@
 									</div>
 
 									<div id="div-is_notice" class="form-group" >
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 공지사항 사용여부 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="is_notice"> 공지사항 사용여부 </label>
 										<div class="col-sm-9">
 											<label>
 												<input id="is_notice" name="is_notice" class="ace ace-switch ace-switch-5" type="checkbox" value="Y">
@@ -108,7 +108,7 @@
 										</div>
 									</div>
 									<div id="div-is_comment" class="form-group" >
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 댓글 사용여부 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="is_comment"> 댓글 사용여부 </label>
 										<div class="col-sm-9">
 											<label>
 												<input id="is_comment" name="is_comment" class="ace ace-switch ace-switch-5" type="checkbox" value="Y">
@@ -117,7 +117,7 @@
 										</div>
 									</div>
 									<div id="div-is_file" class="form-group" >
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 첨부파일 사용여부 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="is_file"> 첨부파일 사용여부 </label>
 										<div class="col-sm-9">
 											<label>
 												<input id="is_file" name="is_file" class="ace ace-switch ace-switch-5" type="checkbox" value="Y">
@@ -126,7 +126,7 @@
 										</div>
 									</div>
 									<div id="div-is_thumbnail" class="form-group" >
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 썸네일 사용여부 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="is_thumbnail"> 썸네일 사용여부 </label>
 										<div class="col-sm-9">
 											<label>
 												<input id="is_thumbnail" name="is_thumbnail" class="ace ace-switch ace-switch-5" type="checkbox" value="Y">
@@ -135,7 +135,7 @@
 										</div>
 									</div>
 									<div id="div-is_secret" class="form-group" >
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 비밀글 사용여부 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="is_secret"> 비밀글 사용여부 </label>
 										<div class="col-sm-9">
 											<label>
 												<input id="is_secret" name="is_secret" class="ace ace-switch ace-switch-5" type="checkbox" value="Y">
@@ -144,7 +144,7 @@
 										</div>
 									</div>
 									<div id="div-is_nologin" class="form-group" >
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 비로그인 사용자 사용여부 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="is_nologin"> 비로그인 사용자 사용여부 </label>
 										<div class="col-sm-9">
 											<label>
 												<input id="is_nologin" name="is_nologin" class="ace ace-switch ace-switch-5" type="checkbox" value="Y">
@@ -153,7 +153,7 @@
 										</div>
 									</div>
 									<div id="div-write_level" class="form-group" >
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 작성 권한 레벨 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="write_level"> 작성 권한 레벨 </label>
 										<div class="col-sm-9">
 											<label>
 												<select id="write_level" name="write_level" size=1>
@@ -165,7 +165,7 @@
 										</div>
 									</div>
 									<div id="div-page_count" class="form-group" >
-										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 한 페이지 표출수 </label>
+										<label class="col-sm-2 control-label no-padding-right" for="page_count"> 한 페이지 표출수 </label>
 										<div class="col-sm-9">
 											<label>
 												<input class="col-xs-10 col-sm-3" id="page_count" name="page_count" type="text" placeholder="15" value="15">
@@ -263,7 +263,8 @@
 			getProcess( BOARD_MANAGER +  "/setBBS", $('#frm').serialize(), function (data) {
 				if ( data.result == "OK" ) {
 					showAlert("저장되었습니다.", null, false, function () {
-						location.href = BOARD_MANAGER + "/";
+						//location.href = BOARD_MANAGER + "/";
+						window.reload();
 					}, null);
 
 				} else {

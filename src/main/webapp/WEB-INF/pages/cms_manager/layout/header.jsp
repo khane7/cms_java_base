@@ -1,15 +1,12 @@
 <%@page language="java" contentType="text/html;charset=utf-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<jsp:include page="../include/declare.jsp" />
 
 	<head>
 		<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Humanwares CMS</title>
+		<title>${ SITE_NAME }</title>
 	
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -63,18 +60,6 @@
 
 		<script type="text/javascript">
 
-			var TOMCAT_PATH = "${ pageContext.request.contextPath }";
-			var CMS = TOMCAT_PATH + "/cms_manager";
-
-			var ACCOUNT_MANAGER = CMS + "/account_manager";
-			var BOARD_MANAGER = CMS + "/board_manager";
-			var CALENDAR = CMS + "/calendar";
-			var BOARD = CMS + "/board";
-			var FILE = CMS + "/file";
-			var COMMENT = CMS + "/comment";
-			var BANNER = CMS + "/display_manager/banner";
-			var POPUP = CMS + "/display_manager/popup";
-
 			$(document).ready(function() {
 				
 				$('document').ready(function() {
@@ -86,9 +71,8 @@
 
 			});
 		</script>
-		
-		
-		
+
+
 		<%--<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
 		<style>
 		body , div , dl ,dt , dd , ul ,ol ,li , h1 ,h2 , h3 , h4 ,h5 ,h6 ,pre , form , input , th , td ,tr,  fieldset , p {

@@ -1,8 +1,6 @@
 <%@page language="java" contentType="text/html;charset=utf-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:include page="../include/declare.jsp" />
 
 
 		<!-- #section:basics/navbar.layout -->
@@ -29,7 +27,7 @@
 					<a href="#" class="navbar-brand">
 						<small id="CMS_TITLE">
 							<i class="fa fa-leaf"></i>
-							Humawares CMS
+							Manager
 						</small>
 					</a>
 
