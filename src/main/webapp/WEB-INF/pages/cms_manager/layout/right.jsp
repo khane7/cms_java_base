@@ -106,7 +106,7 @@
 			setThemes();
 		});
 
-		$('#skin-colorpicker, #ace-settings-navbar, #ace-settings-sidebar, #ace-settings-breadcrumbs, #ace-settings-rtl, ' +
+		$('#ace-settings-navbar, #ace-settings-sidebar, #ace-settings-breadcrumbs, #ace-settings-rtl, ' +
 			'#ace-settings-add-container, #ace-settings-hover, #ace-settings-compact, #ace-settings-highlight').click(function () {
 			setThemes();
 		});
@@ -117,9 +117,10 @@
 
 		getProcess( CMS + "/account/getThemes", null, function (data) {
 
-			$('body').removeClass();
-
+			/*$('body').removeClass();
 			$('#skin-colorpicker').val(data.colorpicker);
+			$('body').addClass(data.colorpicker);*/
+
 			/*if ($('#skin-colorpicker').prop("selectedIndex") <= 0 ) {
 				$('body').addClass("no-skin");
 			} else {
@@ -194,8 +195,7 @@
 
 	function setThemes () {
 
-		var colorpicker = $('#skin-colorpicker').attr("data-skin");
-		alert( colorpicker );
+		var colorpicker = $('#skin-colorpicker').find(":selected").attr("data-skin");
 		var navbar = ($('#ace-settings-navbar').prop("checked")) ? $('#ace-settings-navbar').val() : "";
 		var sidebar = ($('#ace-settings-sidebar').prop("checked")) ? $('#ace-settings-sidebar').val() : "";
 		var breadcrumbs = ($('#ace-settings-breadcrumbs').prop("checked")) ? $('#ace-settings-breadcrumbs').val() : "";

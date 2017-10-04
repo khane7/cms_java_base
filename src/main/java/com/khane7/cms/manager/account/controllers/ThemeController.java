@@ -51,7 +51,7 @@ public class ThemeController extends Application {
 		Map results = new HashMap();
 
 		String user_id = this.getSSUser().getUser_id();
-		if ( user_id == null || user_id.equals("") == true ) {
+		if ( user_id != null && user_id.equals("") == false ) {
 			params.put("user_id", user_id);
 			results = daoAccount.getThemes(user_id);
 		}

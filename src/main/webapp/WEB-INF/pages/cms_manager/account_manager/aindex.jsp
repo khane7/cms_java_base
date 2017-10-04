@@ -9,7 +9,6 @@
 
 <jsp:include page="/cms_manager/getLayoutHeader" />
 
-<body class="no-skin">
 
 <jsp:include flush="false"  page="/cms_manager/getLayoutTop" />
 

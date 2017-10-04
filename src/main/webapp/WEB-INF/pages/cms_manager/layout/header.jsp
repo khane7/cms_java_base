@@ -1,4 +1,8 @@
 <%@page language="java" contentType="text/html;charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <jsp:include page="../include/declare.jsp" />
 
@@ -83,4 +87,18 @@
 		
 
 	</head>
-	
+
+
+<c:if test="${ sessionScope.session_user ne null }">
+	<c:if test="${ themes eq null }">
+		<body class="no-skin">
+	</c:if>
+	<c:if test="${ themes ne null }">
+		<body class="${ themes.colorpicker }">
+	</c:if>
+</c:if>
+
+<c:if test="${ sessionScope.session_user eq null }">
+	<body class="login-layout">
+</c:if>
+

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.rmi.CORBA.Util;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/cms_manager")
@@ -29,8 +30,12 @@ public class LayoutController extends Application {
 	DaoAccount daoAccount;
 
 	@RequestMapping(value="/getLayoutHeader")
-	public String getAdminLayoutHeader () {
-		
+	public String getAdminLayoutHeader (ModelMap model) {
+
+		if ( this.getSSUser() != null ) {
+			model.addAttribute("themes", daoAccount.getThemes(this.getSSUser().getUser_id()) );
+		}
+
 		return "/cms_manager/layout/header";
 	}
 	
