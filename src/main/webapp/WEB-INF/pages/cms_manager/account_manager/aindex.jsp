@@ -11,19 +11,19 @@
 
 <body class="no-skin">
 
-	<jsp:include flush="false"  page="/cms_manager/getLayoutTop" />
+<jsp:include flush="false"  page="/cms_manager/getLayoutTop" />
 
-	<!-- /section:basics/navbar.layout -->
-	<div class="main-container" id="main-container">
+<!-- /section:basics/navbar.layout -->
+<div class="main-container" id="main-container">
 	<script type="text/javascript">
 		try{ace.settings.check('main-container' , 'fixed')}catch(e){}
 	</script>
 
-		<jsp:include flush="true" page="/cms_manager/getLayoutLeft" />
-		<div class="main-content">
-			<jsp:include page="/cms_manager/getLayoutNavigator" />
-			<div class="page-content">
-				<jsp:include page="/cms_manager/getLayoutRight" />
+	<jsp:include flush="true" page="/cms_manager/getLayoutLeft" />
+	<div class="main-content">
+		<jsp:include page="/cms_manager/getLayoutNavigator" />
+		<div class="page-content">
+			<jsp:include page="/cms_manager/getLayoutRight" />
 
 
 				<div class="page-header">
@@ -207,7 +207,7 @@
 		<jsp:include page="/cms_manager/getLayoutBottom" />
 	</div><!-- /.main-container -->
 	<jsp:include page="/cms_manager/getLayoutTail" />
-	
+
 
 	<!--  비밀번호 수정창 -->
 	<div class="hide" id="dlg-password">

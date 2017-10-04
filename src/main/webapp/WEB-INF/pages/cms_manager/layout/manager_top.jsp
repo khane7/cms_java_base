@@ -5,6 +5,10 @@
   Time: 오후 2:03
   To change this template use File | Settings | File Templates.
 --%>
+<%@page language="java" contentType="text/html;charset=utf-8"%>
+
+<jsp:include page="../include/declare.jsp" />
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +28,9 @@
 	</script>
 
 	<jsp:include flush="true" page="/cms_manager/getLayoutLeft"/>
+
 	<div class="main-content">
 		<jsp:include page="/cms_manager/getLayoutNavigator"/>
+
 		<div class="page-content">
-<jsp:include page="/cms_manager/getLayoutRight"/>
+			<jsp:include page="/cms_manager/getLayoutRight"/>

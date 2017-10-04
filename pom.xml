@@ -199,7 +199,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>site_humanwares_cms</finalName>
+		<finalName>cms_khane7</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

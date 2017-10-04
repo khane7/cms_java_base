@@ -357,8 +357,8 @@ jQuery(function($) {
 	///////////////////////////////////////////
 
 	//right & left position
-	//show the account info on right or left depending on its position
-	$('#account-profile-2 .memberdiv').on('mouseenter touchstart', function(){
+	//show the user info on right or left depending on its position
+	$('#user-profile-2 .memberdiv').on('mouseenter touchstart', function(){
 		var $this = $(this);
 		var $parent = $this.closest('.tab-pane');
 
@@ -378,7 +378,7 @@ jQuery(function($) {
 
 
 	///////////////////////////////////////////
-	$('#account-profile-3')
+	$('#user-profile-3')
 	.find('input[type=file]').ace_file_input({
 		style:'well',
 		btn_choose:'Change avatar',
@@ -391,7 +391,7 @@ jQuery(function($) {
 		allowMime: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
 	})
 	.end().find('button[type=reset]').on(ace.click_event, function(){
-		$('#account-profile-3 input[type=file]').ace_file_input('reset_input');
+		$('#user-profile-3 input[type=file]').ace_file_input('reset_input');
 	})
 	.end().find('.date-picker').datepicker().next().on(ace.click_event, function(){
 		$(this).prev().focus();
@@ -405,8 +405,8 @@ jQuery(function($) {
 	$('[data-toggle="buttons"] .btn').on('click', function(e){
 		var target = $(this).find('input[type=radio]');
 		var which = parseInt(target.val());
-		$('.account-profile').parent().addClass('hide');
-		$('#account-profile-'+which).parent().removeClass('hide');
+		$('.user-profile').parent().addClass('hide');
+		$('#user-profile-'+which).parent().removeClass('hide');
 	});
 });
 

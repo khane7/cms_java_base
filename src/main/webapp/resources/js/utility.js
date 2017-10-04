@@ -1,5 +1,5 @@
 
-var sleep = function(milliseconds) {
+function sleep (milliseconds) {
 	var start = new Date().getTime();
 	for (var i = 0; i < 1e7; i++) {
 		if ((new Date().getTime() - start) > milliseconds){
@@ -10,7 +10,7 @@ var sleep = function(milliseconds) {
 
 
 //실제 페이지 이동
-var goPage = function (pageUrl) {
+function goPage (pageUrl) {
 
 	//showLoading();
 	location.href = pageUrl;
@@ -21,7 +21,7 @@ var goPage = function (pageUrl) {
  * GET 방식으로 넘어온 Parameter 가져오기
  * @returns {String}
  */
-var getURLParams = function () {
+function getURLParams () {
 	var thisUrl = unescape(location.href);
 	var params = "";
 	if (thisUrl.indexOf("?") > -1 ) {
@@ -32,7 +32,7 @@ var getURLParams = function () {
 	return (params != "") ? "&" + params : "";
 }
 
-var getParameter = function(strParamName) {
+function getParameter (strParamName) {
 	var arrResult = null;
 	if (strParamName) {
 		arrResult = location.search.match(new RegExp("[&?]" + strParamName + "=(.*?)(&|$)"));
@@ -40,7 +40,7 @@ var getParameter = function(strParamName) {
 	return arrResult && arrResult[1] ? arrResult[1] : "";
 }
 
-var removeParameter = function (url, parameter) {
+function removeParameter (url, parameter) {
 	//prefer to use l.search if you have a location/link object
 	var urlparts = url.split('?');
 	if (urlparts.length >= 2) {
@@ -63,7 +63,7 @@ var removeParameter = function (url, parameter) {
 	}
 }
 
-var removeURLParameter = function(url, parameter) {
+function removeURLParameter (url, parameter) {
 	//prefer to use l.search if you have a location/link object
 	var urlparts = url.split('?');
 	if (urlparts.length >= 2) {
@@ -87,7 +87,7 @@ var removeURLParameter = function(url, parameter) {
 }
 
 
-var getJavaInfo = function() {
+function getJavaInfo () {
 	
 	var link = location.href;
 	
@@ -113,7 +113,7 @@ var getJavaInfo = function() {
 }
 
 
-var encodeImageFileAsURL = function ( fileTag ){
+function encodeImageFileAsURL( fileTag ){
 
 	var previewTag = fileTag + "_preview";
 	var saveTag = fileTag + "_data";
@@ -157,13 +157,13 @@ var encodeImageFileAsURL = function ( fileTag ){
 
 
 
-var setCookie = function(name, value, expiredays) {
+function setCookie (name, value, expiredays) {
 	var todayDate = new Date();
 	todayDate.setDate(todayDate.getDate() + expiredays);
 	document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
 }
 
-var getCookie = function(name) {
+function getCookie (name) {
 	var nameOfCookie = name + "=";
 	var x = 0;
 	while (x <= document.cookie.length) {
@@ -181,14 +181,40 @@ var getCookie = function(name) {
 }
 
 
-var convertTimestamp = function ( milliseconds ) {
+function convertTimestamp( milliseconds ) {
 	var date = new Date(milliseconds);
 
 	return date.getFullYear() + "-" + (((date.getMonth()+1) < 10) ? "0" : "") + (date.getMonth()+1) + "-" + (((date.getDate()) < 10) ? "0" : "") + date.getDate();
 }
 
 
-var doProcess = function (url_, data_, callback_) {
+function doProcess (url_, data_, callback_) {
+
+	$.ajax({
+		url: url_,
+		global: false,
+		type: "POST",
+		data: data_,
+		dataType: "json",
+		async: true,
+		clearForm: true,
+		resetForm: true,
+		timeout : 30000,
+		success: callback_,
+		beforeSend: function () {
+			showLoading();
+		}, complete: function () {
+			hideLoading();
+		}
+		, error: function (response, textStatus, errorThrown) {
+			alert( showAlert(textStatus, errorThrown + "\t\n" + response.responseText, false) );
+			//showAlert(textStatus, errorThrown + "<br>" + response.responseText, false);
+		}
+	});
+
+}
+
+function getProcess(url_, data_, callback_) {
 
 	$.ajax({
 		url: url_,
@@ -213,33 +239,8 @@ var doProcess = function (url_, data_, callback_) {
 
 }
 
-var getProcess = function (url_, data_, callback_) {
 
-	$.ajax({
-		url: url_,
-		global: false,
-		type: "POST",
-		data: data_,
-		dataType: "json",
-		async: true,
-		clearForm: true,
-		resetForm: true,
-		timeout : 30000,
-		success: callback_,
-		beforeSend: function () {
-			showLoading();
-		}, complete: function () {
-			hideLoading();
-		}
-		, error: function (response, textStatus, errorThrown) {
-			showAlert(textStatus, errorThrown + "<br>" + response.responseText, false);
-		}
-	});
-
-}
-
-
-var getProcess4Page = function (url_, data_, callback_) {
+function getProcess4Page (url_, data_, callback_) {
 
 	$.ajax({
 		url: url_,
@@ -271,7 +272,7 @@ var getProcess4Page = function (url_, data_, callback_) {
 }
 
 
-var getProcess4Front = function (url_, data_, callback_) {
+function getProcess4Front(url_, data_, callback_) {
 
 	$.ajax({
 		url: url_,
@@ -304,7 +305,7 @@ var getProcess4Front = function (url_, data_, callback_) {
 }
 
 
-var getProcess4Main = function (url_, data_, callback_) {
+function getProcess4Main (url_, data_, callback_) {
 
     $.ajax({
         url: url_,
@@ -337,7 +338,7 @@ var getProcess4Main = function (url_, data_, callback_) {
 }
 
 
-var goPageNum = function (pageNum) {
+function goPageNum (pageNum) {
 
 	var params = "";
 	params = removeURLParameter(location.href, "pageNum");
@@ -355,7 +356,7 @@ var goPageNum = function (pageNum) {
 }
 
 
-var convertFileSize = function ( bytes ) {
+function convertFileSize ( bytes ) {
 
 	var bytes = parseInt(bytes);
 	var s = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB'];
@@ -369,7 +370,7 @@ var convertFileSize = function ( bytes ) {
 }
 
 
-var getBoardFile = function ( file_idx ) {
+function getBoardFile ( file_idx ) {
 
 	//${pageContext.request.contextPath}/cms_manager/file/download?file_idx=${ file.idx }
 	location.href = "/cms_manager/file/download?file_idx=" + file_idx;

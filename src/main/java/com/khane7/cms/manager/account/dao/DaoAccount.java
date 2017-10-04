@@ -141,13 +141,32 @@ public class DaoAccount extends DaoBase {
 	/**
 	 * 계정 삭제처리
 	 * @param user_id
-	 * @param passwd
 	 */
 	public void doDelete ( String user_id ) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("user_id", user_id);
 		getSqlSession().update("account.update_drop", map);
 	}
+
+
+
+
+	public void setThemes ( Map params ) {
+
+		int count = getSqlSession().selectOne( "themes.select_themes_count", params );
+		if ( count > 0 ) {
+			getSqlSession().update("themes.update_themes", params);
+		} else {
+			getSqlSession().insert("themes.insert_themes", params);
+		}
+	}
+
+	public Map getThemes ( String user_id ) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		return getSqlSession().selectOne("themes.select_themes", map);
+	}
+
 
 
 }

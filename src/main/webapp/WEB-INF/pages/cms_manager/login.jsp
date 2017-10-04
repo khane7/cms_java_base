@@ -62,7 +62,7 @@
 							<span class="red">GW khane7</span>
 							<span class="white" id="id-text2">Application</span>
 						</h1>
-						<h4 class="blue" id="id-company-text">&copy; Humanwares</h4>
+						<h4 class="blue" id="id-company-text">&copy; Khane7</h4>
 					</div>
 
 					<div class="space-6"></div>

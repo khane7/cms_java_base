@@ -16,7 +16,7 @@ jQuery(function($) {
 	//sometimes we try to use 'tap' event instead of 'click' if jquery mobile plugin is available
 	ace.click_event = ace.vars['touch'] && $.fn.tap ? 'tap' : 'click';
 
-	//sometimes the only good way to work around browser's pecularities is to detect them using account-agents
+	//sometimes the only good way to work around browser's pecularities is to detect them using user-agents
 	//though it's not accurate
 	var agent = navigator.userAgent
 	ace.vars['webkit'] = !!agent.match(/AppleWebKit/i)
@@ -120,7 +120,7 @@ ace.general_vars = function($) {
 
 //
 ace.general_things = function($) {
-	//add scrollbars for account dropdowns
+	//add scrollbars for user dropdowns
 	var has_scroll = !!$.fn.ace_scroll;
 	if(has_scroll) $('.dropdown-content').ace_scroll({reset: false, mouseWheelLock: true})
 	/**
