@@ -249,3 +249,23 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-05-23 11:16:18
+
+
+
+-- ----------------------------
+-- Table structure for tb_account_themes
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_account_themes`;
+CREATE TABLE `tb_account_themes` (
+  `user_id` varchar(50) NOT NULL,
+  `colorpicker` varchar(20) DEFAULT NULL,
+  `navbar` varchar(5) DEFAULT NULL,
+  `sidebar` varchar(5) DEFAULT NULL,
+  `breadcrumbs` varchar(5) DEFAULT NULL,
+  `rtl` varchar(5) DEFAULT NULL,
+  `container` varchar(5) DEFAULT NULL,
+  `hover` varchar(5) DEFAULT NULL,
+  `compact` varchar(5) DEFAULT NULL,
+  `highlight` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
